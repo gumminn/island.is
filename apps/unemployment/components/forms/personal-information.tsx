@@ -11,16 +11,19 @@ import {
 } from '@island.is/island-ui/core'
 import { useForm, FormProvider, Controller } from 'react-hook-form'
 
+import { ApplicationData } from './../../entities/application-data'
+
 interface PropTypes {
   onSubmit: (data) => void
-  defaultValues: any
+  defaultValues: ApplicationData
 }
 
 const PersonalInformation: React.FC<PropTypes> = ({
   onSubmit,
   defaultValues,
 }: PropTypes) => {
-  const hookFormData = useForm<any>({
+
+  const hookFormData = useForm<ApplicationData>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: null,
