@@ -12,7 +12,7 @@ import { ApplicationData } from './../../entities/application-data'
 import ValidationUtils from './../../utils/validation.utils'
 import { ApplicationService } from './../../services/application.service'
 import { UnemploymentStep } from './../../entities/enums/unemployment-step.enum'
-import { InitialInfo } from './../../entities/initial-info'
+import { PersonalInfo } from './../../entities/personal-info'
 
 interface PropTypes {
   onSubmit: (data) => void
@@ -30,7 +30,7 @@ const PersonalInformationForm: React.FC<PropTypes> = ({
   const submit = () => {
     const application = defaultValues;
     if (!application.initialInfo) {
-      application.initialInfo = new InitialInfo()
+      application.initialInfo = new PersonalInfo()
     }
     application.initialInfo.email = hookFormData.getValues().initialInfo.email
     application.initialInfo.mobile = hookFormData.getValues().initialInfo.mobile
@@ -47,7 +47,7 @@ const PersonalInformationForm: React.FC<PropTypes> = ({
 
 
   return (
-    <Box paddingY={30}>
+    <Box paddingY={10}>
       <Stack space={3}>
         <FormProvider {...hookFormData}>
           <Box
